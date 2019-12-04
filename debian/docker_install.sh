@@ -12,8 +12,6 @@ else
     exit 1
 fi
 
-sudo systemctl status docker
-
 # add user to docker group so user can run docker command without sudo
 sudo usermod -aG docker ${USER}
 
@@ -25,3 +23,5 @@ sudo usermod -aG docker ${USER}
 sudo curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
+
+sudo systemctl status docker
