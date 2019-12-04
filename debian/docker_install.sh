@@ -5,18 +5,20 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 sudo apt update
 sudo apt install -y docker-ce
-sudo systemctl status docker
+if [ $? -eq 0 ]; then
+    echo "*** docker-ce installed ***"
+else
+    echo "!!! Something didn't go as expected. Exiting. !!!"
+    exit 1
+fi
 
-echo "docker-ce installed"
-sleep 2
+sudo systemctl status docker
 
 # add user to docker group so user can run docker command without sudo
 sudo usermod -aG docker ${USER}
-# su - ${USER}
-# id -nG
 
-# make sure user belongs to docker group
-groups $USER 
+# check if user belongs to docker group
+# groups $USER 
 
 # docker compose install
 # https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-debian-9

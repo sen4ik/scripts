@@ -31,6 +31,7 @@ touch $SSH_CONFIG
 
 echo -e 'Host *\n    ServerAliveInterval 120\n    ServerAliveCountMax 2' | tee $SSH_CONFIG > /dev/null
 
+echo ""
 read -p "Paste your public key: " PUBLIC_KEY
 echo $PUBLIC_KEY > $AUTHORIZED_KEY
 
@@ -40,3 +41,6 @@ chmod 644 $SSH_CONFIG
 
 chown -R $USER_TO_CREATE $SSH_DIR
 chgrp -R $USER_TO_CREATE $SSH_DIR
+
+echo "Following user is created:"
+egrep "^$USER_TO_CREATE" /etc/passwd
