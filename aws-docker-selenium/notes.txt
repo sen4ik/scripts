@@ -1,0 +1,15 @@
+1) Open Grid Hub port for AWS instance. Modify security group to allow inbound traffic on port 4444.
+2) If you want to be able to access grid nodes using VNC, you need to open additional ports. In our case those ports are 5901-5931.
+3) Make sure server uses proper timezone. Use 'sudo dpkg-reconfigure tzdata' command.
+If everything setup correctly, you should be able to access Grib Hub console at http://{{INSTANCE_IP}}:4444/grid/console
+
+VNC Viewer
+https://www.realvnc.com/en/connect/download/viewer/
+Default VNC password is 'secret'.
+
+Useful links
+How do I create a secure connection between my office network and Amazon Virtual Private Cloud? https://aws.amazon.com/premiumsupport/knowledge-center/create-connection-vpc/
+
+AWS SDK
+AWS Java SDK https://github.com/aws/aws-sdk-java-v2/.
+AWS Java SDK Examples https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/ec2/src/main/java/com/example/ec2

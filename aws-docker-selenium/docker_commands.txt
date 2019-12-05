@@ -1,0 +1,20 @@
+# Run hub and one chrome instance
+sudo docker-compose --file docker-compose.yaml up -d
+ 
+# Run hub and multiple chrome instances
+sudo docker-compose --file docker-compose.yaml up --scale chrome=30 -d
+ 
+# View docker containers
+sudo docker ps -a
+ 
+# Kill containers
+sudo docker stop $(sudo docker ps -a -q)
+ 
+# Remove containers
+sudo docker rm $(sudo docker ps -a -q)
+ 
+# Restart docker to reset port mapping
+sudo service docker restart
+ 
+# Docker stats
+sudo docker stats

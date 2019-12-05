@@ -1,0 +1,41 @@
+chrome:
+  image: selenium/node-chrome-debug:3.141.59-titanium
+  volumes:
+    - /dev/shm:/dev/shm
+  log_opt:
+    max-file: "10"
+    max-size: "20m"
+  links:
+    - hub
+  environment:
+    - TZ=America/Los_Angeles
+    - HUB_HOST=hub
+    - HUB_PORT=4444
+    - NODE_MAX_INSTANCES=1
+    - NODE_MAX_SESSION=1
+    - TIMEOUT=120
+    - SCREEN_WIDTH=1920
+    - SCREEN_HEIGHT=1080
+    - SCREEN_DEPTH=24
+    - SE_OPTS=-debug
+    - JAVA_OPTS=-Xmx1024m -Dselenium.LOGGER.level=TRACE
+#  extra_hosts:
+#    - "test.example.org:11.1.1.123"
+  ports:
+    - "5501-5531:5555"
+    - "5901-5931:5900"
+
+hub:
+  image: selenium/hub:3.141.59-titanium
+  log_opt:
+    max-file: "10"
+    max-size: "20m"
+  volumes:
+    - /dev/shm:/dev/shm
+  environment:
+    - TZ=America/Los_Angeles
+    - GRID_MAX_SESSION=100
+    - SE_OPTS=-debug
+    - JAVA_OPTS=-Xmx2048m -Dselenium.LOGGER.level=TRACE
+  ports:
+    - "4444:4444"
