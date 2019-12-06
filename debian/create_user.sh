@@ -44,3 +44,5 @@ chgrp -R $USER_TO_CREATE $SSH_DIR
 
 echo "Following user is created:"
 egrep "^$USER_TO_CREATE" /etc/passwd
+
+su $USER_TO_CREATE

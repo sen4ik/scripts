@@ -9,4 +9,6 @@ if ! [[ $1 =~ $re ]] ; then
    echo "error: scale parameter should be a number" >&2; exit 1
 fi
 
-sudo docker-compose --file docker-compose.yaml up --scale chrome=$1 -d
+ABS_SCRIPT_LOC=$(cd -P -- "$(dirname -- "$0")" && pwd -P)
+
+sudo docker-compose --file $ABS_SCRIPT_LOC/docker-compose.yaml up --scale chrome=$1 -d
