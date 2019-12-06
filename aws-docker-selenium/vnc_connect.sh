@@ -32,11 +32,9 @@ select option; do # in "$@" is the default
 done
 }
 
-for CONTID in $(docker ps -q) ; do
-    CONTIP=$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CONTID)
-    CONTNAME=$(docker inspect --format '{{ .Name }}' $CONTID)
-    
-    # echo "$CONTIP | $CONTNAME | $CONTID"
+for CONTID in $(sudo docker ps -q) ; do
+    CONTIP=$(sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CONTID)
+    CONTNAME=$(sudo docker inspect --format '{{ .Name }}' $CONTID)
     
     if [[ $CONTNAME != *"hub"* ]]
     then
