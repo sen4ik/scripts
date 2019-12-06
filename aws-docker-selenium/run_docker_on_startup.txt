@@ -1,3 +1,3 @@
 
 Add following to crontab so that docker starts containers when instance boots up
-@reboot sh /home/admin/run.sh
+@reboot /bin/bash /home/admin/scripts/aws-docker-selenium/run.sh 2
