@@ -8,3 +8,7 @@ add bind-address            = 0.0.0.0 to the end of the file
 CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
 FLUSH PRIVILEGES;
+
+3) Restore MySQL dump
+mysqladmin -u root -p create [database_name]
+mysql -u [user] -p [database_name] < [filename].sql
