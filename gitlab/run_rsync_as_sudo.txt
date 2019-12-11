@@ -1,0 +1,15 @@
+https://askubuntu.com/questions/719439/using-rsync-with-sudo-on-the-destination-machine
+
+On the destination machine
+
+    Find out the path to rsync: which rsync
+    Edit the /etc/sudoers file: sudo visudo (see also: must I use visudo?)
+    Add the line <username> ALL=NOPASSWD:<path to rsync>, where username is the login name of the user that rsync will use to log on. That user must be able to use sudo
+
+Then, on the source machine, specify that sudo rsync shall be used:
+
+rsync ... --rsync-path="sudo rsync" ...
+
+Using it without the NOPASSWD on the destination machine will result in the message
+
+    sudo: no tty present and no askpass program specified
