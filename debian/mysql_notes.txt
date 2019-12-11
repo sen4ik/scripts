@@ -1,0 +1,25 @@
+# https://www.digitalocean.com/community/tutorials/how-to-allow-remote-access-to-mysql
+1) To allow remote connections:
+sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+add bind-address = 0.0.0.0 to the end of the file
+
+# https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
+2) To create new user and grant permissions:
+CREATE USER 'sen4ik'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'sen4ik'@'localhost';
+
+To create user for remote connections:
+CREATE USER 'sen4ik'@'%' IDENTIFIED BY 'password';
+GRANT ALL ON *.* TO 'sen4ik'@'%';
+FLUSH PRIVILEGES;
+
+Check permissions:
+SELECT * from information_schema.user_privileges where grantee like "'sen4ik'%";
+
+3) Restore MySQL dump
+mysqladmin -u root -p create [database_name]
+mysql -u [user] -p [database_name] < [filename].sql
+
+***
+DROP USER 'sen4ik'@'localhost';
+DROP USER 'sen4ik'@'%';
