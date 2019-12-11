@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# /var/opt/gitlab/backups needs to have proper permissions. I wasn't able to 
+# figure out how to permanently set proper permissions for backups directory, 
+# so I am running rsync with sudo.
+
 GITLABHOSTIP=XXX.XXX.XXX.XXX
 BACKUPFROM=/var/opt/gitlab/backups
 BACKUPTO=/mnt/p1/backups/gitlab/rsynced
