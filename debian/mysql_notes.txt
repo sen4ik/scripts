@@ -23,3 +23,6 @@ mysql -u [user] -p [database_name] < [filename].sql
 ***
 DROP USER 'sen4ik'@'localhost';
 DROP USER 'sen4ik'@'%';
+
+***
+SET PASSWORD FOR 'sen4ik'@'localhost' = PASSWORD('password');
