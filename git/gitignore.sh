@@ -10,4 +10,8 @@ echo ".DS_Store" >> $GIT_IGNORE_GLOBAL
 echo "._.DS_Store" >> $GIT_IGNORE_GLOBAL
 echo "**/.DS_Store" >> $GIT_IGNORE_GLOBAL
 echo "**/._.DS_Store" >> $GIT_IGNORE_GLOBAL
+echo "HELP.md" >> $GIT_IGNORE_GLOBAL
+echo "target/" >> $GIT_IGNORE_GLOBAL
+echo ".idea" >> $GIT_IGNORE_GLOBAL
+
 git config --global core.excludesfile $GIT_IGNORE_GLOBAL
