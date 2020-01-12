@@ -10,6 +10,6 @@ sudo apt-get install gitlab-runner
 sudo gitlab-runner register
 
 # add to sudoers
-echo "gitlab-runner ALL=(ALL) NOPASSWD: /bin/ln, /bin/chmod" | sudo tee -a /etc/sudoers
+echo "gitlab-runner ALL=(ALL) NOPASSWD: /bin/ln, /bin/chmod, /etc/init.d/oac-api" | sudo tee -a /etc/sudoers
 
 # service gitlab-runner start
