@@ -32,7 +32,7 @@ touch $SSH_CONFIG
 echo -e 'Host *\n    ServerAliveInterval 120\n    ServerAliveCountMax 2' | tee $SSH_CONFIG > /dev/null
 echo ""
 
-read -p "Is this a good question (y/n)? " answer
+read -p "Do you want to add public key (y/n)? " answer
 case ${answer:0:1} in
     y|Y )
         read -p "Paste your public key: " PUBLIC_KEY
