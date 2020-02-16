@@ -11,5 +11,8 @@ fi
 read -p "Enter desired port: " SSHPORT
 sudo sed -i "s/55995/${SSHPORT}/g" $SSHCONF
 
+read -p "Enter allowed user(s): " ALLOWED_USERS
+sudo sed -i "s/ALLOWEDUSERSXXX/${ALLOWED_USERS}/g" $SSHCONF
+
 sudo service ssh restart
 sudo systemctl status ssh.service

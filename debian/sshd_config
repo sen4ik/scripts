@@ -12,7 +12,7 @@ Port 55995
 # Ciphers and keying
 #RekeyLimit default none
 
-AllowUsers sen4ik
+AllowUsers ALLOWEDUSERSXXX
 
 # Logging
 #SyslogFacility AUTH
