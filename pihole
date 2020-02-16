@@ -1,0 +1,30 @@
+# Raspbian Install
+https://www.raspberrypi.org/documentation/installation/installing-images/mac.md
+
+# Pi-Hole Install
+https://docs.pi-hole.net/main/basic-install/
+
+# Set keyboard and locale to US
+$ sudo raspi-config
+
+# How to fix Perl "setting locale failed" warning on Raspbian
+# https://daker.me/2014/10/how-to-fix-perl-warning-setting-locale-failed-in-raspbian.html
+$ export LANGUAGE=en_US.UTF-8
+$ export LANG=en_US.UTF-8
+$ export LC_ALL=en_US.UTF-8
+$ locale-gen en_US.UTF-8
+$ dpkg-reconfigure locales
+
+# Raspbian SSH
+https://www.raspberrypi.org/documentation/remote-access/ssh/
+
+# Blacklists
+https://firebog.net/
+https://v.firebog.net/hosts/lists.php?type=tick
+
+# Update IPv4 and IPv6 DNS info in the router. In my case IPv6 was located in a different place other than IPv4 DNS info. Advanced -> Advanced Setup -> IPv6.
+
+# MacOS DNS settings: System Preferences -> Network -> Connection in the left menu -> Advanced -> DNS. DNS Servers section should show only your pi hole IPs.
+
+# dig doubleclick.com
+# nslookup doubleclick.com
