@@ -30,10 +30,18 @@ touch $AUTHORIZED_KEY
 touch $SSH_CONFIG
 
 echo -e 'Host *\n    ServerAliveInterval 120\n    ServerAliveCountMax 2' | tee $SSH_CONFIG > /dev/null
-
 echo ""
-read -p "Paste your public key: " PUBLIC_KEY
-echo $PUBLIC_KEY > $AUTHORIZED_KEY
+
+read -p "Is this a good question (y/n)? " answer
+case ${answer:0:1} in
+    y|Y )
+        read -p "Paste your public key: " PUBLIC_KEY
+		echo $PUBLIC_KEY > $AUTHORIZED_KEY
+    ;;
+    * )
+        echo ""
+    ;;
+esac
 
 chmod 700 $SSH_DIR
 chmod 644 $AUTHORIZED_KEY
