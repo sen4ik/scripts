@@ -18,6 +18,9 @@ $ dpkg-reconfigure locales
 # Raspbian SSH
 https://www.raspberrypi.org/documentation/remote-access/ssh/
 
+# Remove default user
+https://www.raspberrypi.org/documentation/configuration/security.md
+
 # Blacklists
 https://firebog.net/
 https://v.firebog.net/hosts/lists.php?type=tick

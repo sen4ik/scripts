@@ -1,0 +1,26 @@
+# add gitlab remote
+git remote add gitlab git@github.com:xxx/my-project.git
+
+# view remote info
+git remote -v
+
+# view remote detailed information
+git remote show origin
+
+# once second remote is added, user will have to pull from the remote:
+# git pull gitlab master
+# however git will barf with something like "fatal: refusing to merge unrelated histories"
+# do following to fix it
+git pull gitlab master --allow-unrelated-histories
+
+# to remove remote gitlab
+git remote remove gitlab
+
+# https://stackoverflow.com/questions/14290113/git-pushing-code-to-two-remotes
+# To send to both remote with one command, you can create a alias for it.
+# With this, when you use the command "git pushall", it will update both repositories.
+git config alias.pushall '!git push gitlab master && git push origin master'
+
+# To make the branch an argument in that command you can do:
+git config alias.pushall '!f() { git push origin $1 && git push github $1; }; f'
+
