@@ -12,7 +12,7 @@ sudo apt install -y python-certbot-nginx -t stretch-backports
 read -p "Enter domain (without www. prefix): " DOMAIN
 sudo certbot --nginx -d $DOMAIN -d www.$DOMAIN
 
-# Below packages are needed for renew to work
+# Below packages are needed for certbot renew to work
 sudo apt install -y python-acme
 sudo apt install -y --only-upgrade python3-acme
 
