@@ -13,6 +13,10 @@ git remote show origin
 # do following to fix it
 git pull gitlab master --allow-unrelated-histories
 
+# When following issue is present:
+# There is no tracking information for the current branch. Please specify which branch you want to merge with.
+git branch --set-upstream-to=origin/master master
+
 # to remove remote gitlab
 git remote remove gitlab
 
