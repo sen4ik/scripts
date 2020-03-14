@@ -9,6 +9,9 @@ if [ ! -f "$ENV" ]; then
   touch $ENV
 fi
 
-echo -e 'JAVA_HOME=\x27/usr/lib/jvm/java-8-openjdk-amd64/jre\x27' | sudo tee $ENV > /dev/null
+# https://serverfault.com/questions/143786/how-to-determine-java-home-on-debian-ubuntu
+# JRELOC=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+JDKLOC=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+echo -e "JAVA_HOME=\x27${JDKLOC}/\x27" | sudo tee $ENV > /dev/null
 source $ENV
 echo $JAVA_HOME
