@@ -1,0 +1,5 @@
+# view current server time zone configuration
+timedatectl
+
+# list available time zones
+timedatectl list-timezones
