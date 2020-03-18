@@ -1,0 +1,5 @@
+# From remote to local
+scp -P 1234 username@from_host:file.txt /local/directory/
+
+# Local dir to remote
+scp -P 1234 -r files/ sen4ik@198.22.33.44:/home/sen4ik/
