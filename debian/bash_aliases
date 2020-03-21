@@ -24,6 +24,7 @@ ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name end
 # tails
 alias vfbl='tail -F /opt/vfb/logs/spring.log'
 alias oacl='tail -F /var/log/oac-api.log'
+alias syslog='tail -F /var/log/syslog'
 
 # nginx
 alias nt='sudo nginx -t'
