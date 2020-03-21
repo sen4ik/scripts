@@ -1,0 +1,87 @@
+alias path='echo -e ${PATH//:/\\n}'
+
+alias ls='ls -Gph --color=auto'
+alias ll='ls -lGph --color=auto'
+alias ltr='ls -lGptr --color=auto'
+alias la='ls -lGpah --color=auto'
+
+alias c='clear'
+alias e='exit'
+
+alias ~="cd ~"
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+
+alias du='du -ch'
+
+# find
+alias qfind="find . -name "                 # qfind:    Quickly search for file
+ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the current directory
+ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
+ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
+
+# tails
+alias vfbl='tail -F /opt/vfb/logs/spring.log'
+alias oacl='tail -F /var/log/oac-api.log'
+
+# nginx
+alias nt='sudo nginx -t'
+alias nr='sudo service nginx restart'
+alias ns='sudo service nginx status'
+
+# systemd
+alias stopvfb='sudo systemctl stop vfb'
+alias startvfb='sudo systemctl start vfb'
+
+# maven
+alias mcp='mvn clean package -DskipTests=true'
+alias mcc='mvn clean compile'
+
+# git
+alias git-reset='git fetch origin && git reset --hard origin/master'
+alias gs='git status -s'
+alias ga='git add '
+alias gaa='git add .'
+alias gpom='git push origin master'
+alias gpa='git pushall'
+alias gc='git commit -m $1'
+alias gp='git pull'
+
+# wildfly
+alias wr='sudo systemctl restart wildfly'
+alias ws='sudo systemctl status wildfly'
+
+# macos specific
+alias f='open -a Finder ./' # f: opens current directory in MacOS Finder
+alias dsd='find . -name ‘*.DS_Store’ -type f -delete'
+alias noDSStore='sudo find . -type f \( -name ‘.DS_Store’ -o -name ‘.localized’ \) -exec rm {} \;'
+# alias ds='sudo find . -name ".DS_Store" -depth -exec rm {} \;'
+# alias dsa='sudo find / -name ".DS_Store" -depth -exec rm {} \;'
+zipf () { zip -r "$1".zip "$1" ; } # zipf: yo create a ZIP archive of a folder
+trash () { command mv "$@" ~/.Trash ; } # trash: moves a file to the MacOS trash
+alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
+alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
+alias catt="bat $*"
+
+# extract:  Extract most know archives with one command
+extract () {
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar xjf $1     ;;
+        *.tar.gz)    tar xzf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xf $1      ;;
+        *.tbz2)      tar xjf $1     ;;
+        *.tgz)       tar xzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+        *)     echo "'$1' cannot be extracted via extract()" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
