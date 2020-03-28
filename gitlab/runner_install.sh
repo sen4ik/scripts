@@ -10,6 +10,9 @@ sudo apt-get install gitlab-runner
 sudo gitlab-runner register
 
 # add to sudoers
-echo "gitlab-runner ALL=(ALL) NOPASSWD: /bin/ln, /bin/chmod, /etc/init.d/oac-api" | sudo tee -a /etc/sudoers
+# echo "gitlab-runner ALL=(ALL) NOPASSWD: /bin/ln, /bin/chmod, /usr/bin/crontab, /etc/init.d/oac-api" | sudo tee -a /etc/sudoers
+echo "gitlab-runner ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers
 
-# service gitlab-runner start
+service gitlab-runner start
+
+echo "for issue with \"No such file or directory\" error when running runner on remote box read here https://gitlab.com/gitlab-org/gitlab-runner/issues/1379"

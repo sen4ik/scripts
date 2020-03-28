@@ -11,8 +11,16 @@ fi
 read -p "Enter desired port: " SSHPORT
 sudo sed -i "s/55995/${SSHPORT}/g" $SSHCONF
 
-read -p "Enter allowed user(s): " ALLOWED_USERS
-sudo sed -i "s/ALLOWEDUSERSXXX/${ALLOWED_USERS}/g" $SSHCONF
+read -p "Do you want to set allowed users (y/n)? " answer
+case ${answer:0:1} in
+    y|Y )
+        read -p "Enter allowed user(s): " ALLOWED_USERS
+		sudo sed -i "s/ALLOWEDUSERSXXX/${ALLOWED_USERS}/g" $SSHCONF
+    ;;
+    * )
+        sed -i.bak '/AllowUsers/d' $SSHCONF
+    ;;
+esac
 
 sudo service ssh restart
 sudo systemctl status ssh.service
