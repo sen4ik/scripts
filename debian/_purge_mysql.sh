@@ -7,7 +7,9 @@ case ${answer:0:1} in
 		sudo apt-get autoremove -y
 		sudo apt-get autoclean
 		rm -rf /etc/mysql
-		sudo find / -iname 'mysql*' -exec rm -rf {} \;
+		# sudo find / -iname 'mysql*' -exec rm -rf {} \;
+        echo "following files with mysql prefix exist in the system:"
+        sudo find / -iname 'mysql*'
     ;;
     * )
         echo ""
