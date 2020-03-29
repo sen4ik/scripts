@@ -17,8 +17,6 @@ case ${answer:0:1} in
     ;;
 esac
 
-#read -s -p "Enter default password: " pass
-#PASSWORD=$(perl -e 'print crypt($ARGV[0], "password")' $pass)
 ENCRYPTEDPASS=""
 
 while true; do

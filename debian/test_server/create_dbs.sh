@@ -1,6 +1,10 @@
 #!/bin/bash
 
 source "list_of_users.sh"
+source "../functions.sh"
+
+checkIfPackageIsInstalled mysql
+checkIfPackageIsInstalled mysqladmin
 
 read -p "Provide mysql user: " MYSQLUSER
 read -p "Provide ${MYSQLUSER} password: " MYSQLPASS
