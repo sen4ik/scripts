@@ -1,3 +1,3 @@
 #!/bin/bash
 
-USERS=("userOne" "userTwo" "userThree" "userFour")
+USERS=("userFive" "userSix" "userSeven")

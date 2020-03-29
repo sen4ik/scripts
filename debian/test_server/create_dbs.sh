@@ -6,12 +6,16 @@ source "../functions.sh"
 checkIfPackageIsInstalled mysql
 checkIfPackageIsInstalled mysqladmin
 
-read -p "Provide mysql user: " MYSQLUSER
-# read -p "Provide ${MYSQLUSER} password: " MYSQLPASS
+read -p "Provide MySQL user: " MYSQLUSER
+read -p "Provide ${MYSQLUSER} password: " MYSQLPASS
 
 for USER in "${USERS[@]}"
 do
-	mysqladmin -u $MYSQLUSER -p create ${USER}_db
-	echo "${USER}_db created"
-	mysql -u $MYSQLUSER -p $MYSQLPASS ${USER}_db < artur_sentsov_db.sql
+	DBNAME=${USER}_db
+	# mysqladmin -u $MYSQLUSER -p create ${USER}_db
+	mysqladmin --user=$MYSQLUSER --password=$MYSQLPASS create $DBNAME
+	echo "${DBNAME} created"
+	mysql -u $MYSQLUSER -p $MYSQLPASS ${DBNAME} < artur_sentsov_db.sql
+	mysql --user=$MYSQLUSER --password=$MYSQLPASS --database=${DBNAME} -e "CREATE USER '${USER}'@'localhost' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON ${DBNAME}.* TO '${USER}'@'localhost'; FLUSH PRIVILEGES;"
+	mysql --user=$MYSQLUSER --password=$MYSQLPASS --database=${DBNAME} -e "CREATE USER '${USER}'@'%' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON ${DBNAME}.* TO '${USER}'@'%'; FLUSH PRIVILEGES;"
 done
