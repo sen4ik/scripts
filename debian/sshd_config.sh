@@ -22,5 +22,16 @@ case ${answer:0:1} in
     ;;
 esac
 
+read -p "Do you want to allow password authentication (y/n)? " answer
+case ${answer:0:1} in
+    y|Y )
+        sed -i.bak '/PasswordAuthentication/d' $SSHCONF
+        sed -i.bak 's:PasswordAuthentication no:PasswordAuthentication yes:g' $SSHCONF
+    ;;
+    * )
+        echo
+    ;;
+esac
+
 sudo service ssh restart
 sudo systemctl status ssh.service

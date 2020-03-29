@@ -7,7 +7,7 @@ checkIfPackageIsInstalled mysql
 checkIfPackageIsInstalled mysqladmin
 
 read -p "Provide MySQL user: " MYSQLUSER
-read -p "Provide ${MYSQLUSER} password: " MYSQLPASS
+read -s -p "Provide ${MYSQLUSER} password: " MYSQLPASS
 
 for USER in "${USERS[@]}"
 do
