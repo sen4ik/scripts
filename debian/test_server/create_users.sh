@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "list_of_users.sh"
+
 if [ ! $(id -u) -eq 0 ]; then
     echo "Only root may add a user to the system"
     exit 2
@@ -18,7 +20,7 @@ esac
 read -s -p "Enter default password: " pass
 PASSWORD=$(perl -e 'print crypt($ARGV[0], "password")' $pass)
 
-USERS=("testUser1" "testUser3" "testUser3" "testUser4")
+# USERS=("testUser1" "testUser3" "testUser3" "testUser4")
 
 for USER in "${USERS[@]}"
 do
