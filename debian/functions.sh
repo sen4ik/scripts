@@ -10,12 +10,9 @@ function checkIfPackageIsInstalled(){
 	which $1 > /dev/null 2>&1
 	if [ $? == 0 ]
 		then
-			echo "$1 is already installed. "
+			echo
 		else
-			read -p "$1 is not installed. Answer yes/no if want installation_ " request
-		if  [ $request == "yes" ]
-			then
-				sudo apt install -y $pkg
-			fi
+			echo "$1 is NOT installed"
+			exit 2;
 	fi
 }
