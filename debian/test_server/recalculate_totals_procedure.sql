@@ -1,4 +1,9 @@
+-- Author: sen4ik
+-- Date: 03/03/2020
+-- Below prodecure will recalculate totals for each order.
+
 drop procedure if exists recalcTotals;
+
 DELIMITER $$
 CREATE PROCEDURE artur_sentsov_db.recalcTotals()
 BEGIN
