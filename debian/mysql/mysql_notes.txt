@@ -1,7 +1,8 @@
 # https://www.digitalocean.com/community/tutorials/how-to-allow-remote-access-to-mysql
 1) To allow remote connections:
 sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
-add bind-address = 0.0.0.0 to the end of the file
+# add following to the end of the file:
+bind-address = 0.0.0.0 
 
 # https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql
 2) To create new user and grant permissions:
