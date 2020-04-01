@@ -12,11 +12,26 @@ if [ $? -eq 0 ]; then
     exit 1
 fi
 
-read -s -p "Enter password: " password
-pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+# read -s -p "Enter password: " password
+# pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+
+userpassword=""
+
+while true; do
+    read -s -p "Enter password: " password
+    echo
+    read -s -p "Retype the password: " password2
+    echo
+    if [ "$password" = "$password2" ]; then
+    	userpassword=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+    	break
+    else
+    	echo "Please try again"
+    fi
+done
 
 # add user
-useradd -m -c "$USER_TO_CREATE" -p $pass -s /bin/bash $USER_TO_CREATE
+useradd -m -c "$USER_TO_CREATE" -p $userpassword -s /bin/bash $USER_TO_CREATE
 
 # add user to sudoers
 echo -e "$USER_TO_CREATE  ALL=(ALL:ALL) ALL" | tee -a /etc/sudoers > /dev/null
