@@ -37,3 +37,23 @@ END$$
 DELIMITER ;
 
 CALL artur_sentsov_db.recalcTotals();
+
+-- Author: sen4ik
+-- Date: 03/05/2020
+-- Below prodecure will generate new qr codes.
+DROP PROCEDURE IF EXISTS artur_sentsov_db.generateQrCode;
+
+DELIMITER $$
+
+CREATE PROCEDURE artur_sentsov_db.generateQrCode()
+BEGIN
+    DECLARE i int DEFAULT 1;
+    WHILE i <= 5000 DO
+        INSERT INTO artur_sentsov_db.qr_codes (qr_code) VALUES (UUID());
+        SET i = i + 1;
+    END WHILE;
+END$$
+
+DELIMITER ;
+
+CALL artur_sentsov_db.generateQrCode();
