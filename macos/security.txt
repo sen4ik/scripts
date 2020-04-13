@@ -1,0 +1,4 @@
+1) Set firmware password https://support.apple.com/en-us/HT204455
+2) Enable Find My Mac
+3) Enable Offline Finding for Find My Mac
+4) Enable FileVault
