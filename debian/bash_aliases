@@ -5,6 +5,8 @@ alias ll='ls -lGph --color=auto'
 alias ltr='ls -lGptr --color=auto'
 alias la='ls -lGpah --color=auto'
 
+alias treed='tree --du -h -d'
+
 alias c='clear'
 alias e='exit'
 

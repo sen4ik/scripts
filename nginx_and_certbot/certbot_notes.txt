@@ -1,0 +1,5 @@
+# list existing certificated
+sudo certbot certificates
+
+# renew all certificated
+sudo /usr/bin/certbot renew --quiet
