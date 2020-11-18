@@ -1,0 +1,8 @@
+diskutil list
+diskutil unmount /dev/disk2
+dd if=/dev/disk2 of=Disc02.iso bs=4096 conv=sync,notrunc
+diskutil eject /dev/disk2
+
+hdiutil mount Disc02.iso
+hdiutil unmount /dev/disk3
+diskutil unmountDisk /dev/disk3
