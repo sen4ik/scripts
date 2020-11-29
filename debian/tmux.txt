@@ -1,0 +1,14 @@
+Start new session
+tmux new -s sessionName
+
+List tmux sessions
+tmux ls 
+
+Detach
+Ctrl + b and then d
+
+Attach to session one
+tmux attach -t 0
+
+Kill session
+tmux kill-session -t 0
