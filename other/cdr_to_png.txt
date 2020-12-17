@@ -1,0 +1,3 @@
+brew install imagemagick
+convert image.cdr image.png
+

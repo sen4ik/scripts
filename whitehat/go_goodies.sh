@@ -15,3 +15,5 @@ go get -u github.com/tomnomnom/gron
 go get github.com/tomnomnom/waybackurls
 go get -u github.com/tomnomnom/unfurl
 go get -u github.com/tomnomnom/hacks/html-tool
+go get -u github.com/m4ll0k/Aron
+go get -u github.com/ffuf/ffuf
