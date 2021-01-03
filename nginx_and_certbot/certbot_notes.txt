@@ -3,3 +3,6 @@ sudo certbot certificates
 
 # renew all certificated
 sudo /usr/bin/certbot renew --quiet
+
+# list certbot certs and select the ones you want to delete
+sudo certbot delete
