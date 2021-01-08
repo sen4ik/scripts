@@ -1,0 +1,17 @@
+# https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-debian-10/
+
+# install
+sudo apt install ufw
+
+# view status. it will be inactive after install
+sudo ufw status verbose
+
+# allow from specific ip
+sudo ufw allow from 64.63.62.61
+
+# enable ufw
+sudo ufw enable
+
+# deleting rules
+sudo ufw status numbered
+ufw delete NUM
