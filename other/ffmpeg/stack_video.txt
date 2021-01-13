@@ -1,0 +1,5 @@
+# horizontal
+ffmpeg -i 1.mp4 -i 2.mp4 -filter_complex hstack=inputs=2 output1.mp4
+
+# vertical
+ffmpeg -i 1.mp4 -i 2.mp4 -filter_complex vstack=inputs=2 output2.mp4
