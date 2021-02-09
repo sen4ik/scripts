@@ -1,0 +1,2 @@
+# checks the latest versions of the dependencies
+mvn versions:display-dependency-updates

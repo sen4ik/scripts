@@ -1,0 +1,10 @@
+SELECT building_name as 'BUILDING', room_name as 'ROOM', CONCAT('Bed ', bed_number) as 'BED' 
+FROM gfchurchcamp.building 
+JOIN gfchurchcamp.room ON building.id = room.building_id
+JOIN bed ON room.id = bed.room_id;
+
+SELECT building.building_name as 'BUILDING', room.room_name as 'ROOM', COUNT(bed.bed_number) as 'NUMBER OF BEDS'
+FROM bed
+JOIN room ON bed.room_id = room.id
+JOIN building ON room.building_id = building.id
+GROUP BY room_id;
