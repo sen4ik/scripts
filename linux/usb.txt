@@ -1,0 +1,13 @@
+# List all the USB storage devices
+lsblk
+
+sudo fdisk -l
+
+sudo blkid
+
+# View usb devices info
+lsusb
+
+dmesg
+
+usb-devices
