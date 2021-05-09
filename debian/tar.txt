@@ -1,0 +1,3 @@
+# create
+tar -cvf archive.tar /home/user/dirr
+

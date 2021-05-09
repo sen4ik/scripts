@@ -1,0 +1,10 @@
+sudo lsof -i -P -n | grep LISTEN
+sudo netstat -tulpn | grep LISTEN
+sudo ss -tulpn | grep LISTEN
+sudo lsof -i:22
+
+# check if a Port is open on a remote system
+sudo apt-get install netcat
+nc -zvw10 192.168.0.1 22
+# or use nmap
+nmap 192.168.0.1 -p 22

@@ -1,0 +1,7 @@
+# https://tecadmin.net/mounting-samba-share-on-ubuntu/
+sudo mkdir /media/share 
+# store credentials to file
+# username=smb_username
+# password=smb_password
+nano /home/sen4ik/.smbcredentials 
+sudo mount -t cifs -o username=sen4ik,nounix,uid=1000,gid=100,dir_mode=0770,file_mode=0660 //192.168.77.30/p1 /media/shareTwo

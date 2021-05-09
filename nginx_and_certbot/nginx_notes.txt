@@ -1,2 +1,10 @@
 # Check config file syntax
 sudo nginx -t
+
+sudo systemctl status nginx
+
+# gracefully restart
+sudo systemctl reload nginx
+
+# force restart
+sudo systemctl restart nginx

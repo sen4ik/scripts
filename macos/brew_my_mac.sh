@@ -1,2 +1,2 @@
 #!/bin/bash
-brew install bat,ccat,nano,awk,p7zip,htop,maven,git,wget,nmap,tmux,mc
+brew install bat,ccat,nano,awk,p7zip,htop,maven,git,wget,nmap,tmux,mc,exa
