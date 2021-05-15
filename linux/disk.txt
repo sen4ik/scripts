@@ -1,0 +1,2 @@
+# view disk usage
+df -H

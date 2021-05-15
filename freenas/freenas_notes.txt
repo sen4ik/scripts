@@ -1,0 +1,7 @@
+# list current partition information
+gpart show
+
+# information about disks
+geom disk list
+geom disk list da7
+

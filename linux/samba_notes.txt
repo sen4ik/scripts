@@ -1,7 +1,37 @@
+sudo apt-get update
+sudo apt-get install samba
+sudo smbpasswd -a <user_name>
+
+sudo nano /etc/samba/smb.conf
+
+# edit config and add the following to the global section. this is because comcast blocks the default port.
+smb ports = 9999
+
+mkdir /media/krug
+
+# add share information
+[krugOne]
+   comment = 8tbshare
+   path = /media/krug
+   browseable = yes
+   read only = no
+   guest ok = no
+   valid users = krug
+   admin users = krug
+   read list = krug
+   write list = krug
+
+sudo service smbd restart
+
+# test the config
+testparm
+
+# make sure the port is listening
+sudo lsof -i -P -n | grep LISTEN
+
+
+
+# mounting share on linux
 # https://tecadmin.net/mounting-samba-share-on-ubuntu/
 sudo mkdir /media/share 
-# store credentials to file
-# username=smb_username
-# password=smb_password
-nano /home/sen4ik/.smbcredentials 
 sudo mount -t cifs -o username=sen4ik,nounix,uid=1000,gid=100,dir_mode=0770,file_mode=0660 //192.168.77.30/p1 /media/shareTwo

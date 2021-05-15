@@ -1,0 +1,4 @@
+$ tmutil listlocalsnapshots /
+com.apple.TimeMachine.2019-01-28-143406 
+$ tmutil deletelocalsnapshots 2019-01-28-143406  
+$ tmutil listlocalsnapshots /
