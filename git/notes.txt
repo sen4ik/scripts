@@ -15,3 +15,18 @@ git reset --hard origin/master
 
 # Checkout remote branch
 git checkout --track origin/rbr
+
+# Switch to checked out local branch
+git switch master
+
+# List local and remote branches
+git branch -a
+
+# List remote only branches
+git branch -r
+
+# create new branch from another branch
+git branch <new_branch> [from_branch]
+
+# push local branch to remote
+git push origin newbranch

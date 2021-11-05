@@ -1,2 +1,16 @@
 # view disk usage
 df -H
+
+# find out SATA hard disk link speed
+sudo hdparm -I /dev/sda | grep -i speed
+
+# check if motheboard supports the top speed
+dmesg | grep -i sata | grep 'link up'
+
+# test write speed
+sync; dd if=/dev/zero of=tempfile bs=1M count=1024; sync
+dd if=/dev/zero of=benchfile bs=4k count=200000 && sync; rm benchfile
+dd if=/dev/zero of=/media/share/ssd4/output.file bs=1G count=5 oflag=dsync
+
+# using hdparm
+sudo hdparm -tT /dev/sda

@@ -1,0 +1,2 @@
+# erase usb
+diskutil eraseDisk free EMPTY /dev/disk4
