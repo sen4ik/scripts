@@ -1,0 +1,63 @@
+# view disks
+sudo mount -v
+sudo df
+geom disk list
+geom disk list da99
+sudo camcontrol devlist
+sudo gpart list
+sudo diskinfo -v da99
+
+# view partitions
+sudo gpart show
+
+# manual mount that actually worked for me. I had issues mounting NTFS, but mounting ext2 worked just fine.
+sudo mount -t ext2fs /dev/da99p1 /mnt/test
+
+
+# === smartctl
+# list devices
+smartctl --scan
+
+sudo smartctl -a /dev/ada99
+
+# perform short smart check
+smartctl -t short /dev/ada99
+
+# long check
+smartctl -t long /dev/ada99
+
+
+# === destroy disk and repartition
+# http://scratching.psybermonkey.net/2010/06/freebsd-how-to-format-partition.html
+# https://forums.freebsd.org/threads/gpart-cheatsheet-wiping-drives-partitioning-formating.45411/
+
+# view disks
+sudo gpart show
+
+# destroy partitions
+sudo gpart destroy -F ada99
+
+# create partition table
+sudo gpart create -s gpt ada99
+
+# create FreeBSD UFS file system
+sudo gpart add -t freebsd-ufs ada99
+
+# format the partition
+sudo newfs /dev/ada99p1
+
+# mount
+sudo mount -t ufs /dev/ada99p1 /mnt/external/
+
+# check if mounted
+mount | grep /dev/ada99p1
+
+# check free space
+df -h | grep /dev/ada99p1
+
+# === monitoring
+# which process is using most of the HDD?
+top -Smio
+
+# what is the MB/s current write speed?
+iostat -w 1 ada1
