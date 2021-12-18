@@ -3,11 +3,10 @@
 sudo kldload fuse
 sudo gpart show
 mkdir /mnt/extdrive
+# mounting read only:
 # sudo ntfs-3g -o ro /dev/da0p2 /mnt/extdrive
+# mounting with write privileges:
 sudo ntfs-3g -o rw /dev/da0p2 /mnt/extdrive
 
-# sudo mount -t ntfs /dev/da0s1 /mnt/extdrive/
-
-
-# unmount
+# unmounting
 sudo umount -f /mnt/extdrive/
