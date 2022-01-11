@@ -1,0 +1,43 @@
+If there is any data on your HDD, it will be destroyed when you do read/write burns!
+
+# install smartmontools
+sudo apt-get install smartmontools
+
+# view disk info 
+df -h
+fdisk -l
+
+If you want to view HDD info including serial number, run:
+sudo smartctl -i /dev/ada0
+
+To view SMART info of the hard drive run command:
+sudo smartctl -a /dev/ada0
+
+Run SMART short test. It takes about 2 minutes. There will be a message in the terminal telling you when the test will be done.
+sudo smartctl -t short /dev/ada0
+
+Once the test is done, view SMART info:
+sudo smartctl -a /dev/ada0
+
+Some of the more important fields include the Reallocated_Sector_Ct, Current_Pending_Sector, and Offline_Uncorrectable lines. All of these should have a RAW_VALUE of 0. I'm not sure why the VALUE field is listed as 200, but as long as the RAW_VALUE for each of these fields is 0, that means there are currently no bad sectors. Any result greater than 0 on a new drive should be cause for an immediate RMA.
+
+Now, run SMART conveyance test. It takes about 5 minutes. Again, there will be a message in the terminal telling you when test will be done.
+sudo smartctl -t conveyance /dev/ada0
+Once the test is done, view SMART info again.
+
+Now it's time for write test to see if there are any bad blocks on the drive. REMEMBER: dd will destroy data on HDD!
+sudo dd if=/dev/zero of=/dev/ada0 bs=1048576
+This will write zeros to every single block on the hard drive. On 4TB drive it will take about 7 hours.
+
+Once write test is done, you need to run read test.
+sudo dd if=/dev/ada0 of=/dev/zero bs=1048576
+This will take another 7 hours.
+
+Now it's time for SMART long test. This will take another 7 hours.
+sudo smartctl -t long /dev/ada0
+Once this is done, view SMART info:
+sudo smartctl -a /dev/ada0
+
+Links:
+https://www.truenas.com/community/threads/hard-drive-burn-in-testing-discussion-thread.21451/
+https://www.truenas.com/community/threads/checking-new-hdds-in-raid.12082/#post-56722

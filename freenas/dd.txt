@@ -1,0 +1,7 @@
+# write
+dd if=/dev/zero of=/dev/da1 bs=1048576
+
+# read
+dd if=/dev/da0 of=/dev/zero bs=1048576
+
+

@@ -6,7 +6,7 @@ BACKUP_TO=/media/WD1TB/MyFiles/Backups
 runSync() {
   LOGSDIR=$2/logs
   rsync --perms --recursive --times --compress --verbose \
-  --itemize-changes --log-file=$LOGSDIR/rsync-$(date +%Y-%m-%d).txt --log-file-format="%i %f %b" \
+  --itemize-changes --log-file=$LOGSDIR/rsync-$(date +%Y-%m-%d-%H-%M-%S).txt --log-file-format="%i %f %b" \
   --copy-links \
   --delete-excluded --delete \
   --exclude-from=$2/exclude.txt \

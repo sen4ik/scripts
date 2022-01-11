@@ -1,0 +1,19 @@
+## increasing swap size
+# turn it off
+# move whatever is using swap into the memory
+sudo swapoff -a
+
+# create an empty swapfile
+sudo dd if=/dev/zero of=/newswapfile bs=1G count=10
+
+# set the correct permissions
+sudo chmod 0600 /newswapfile
+
+# something inportant
+sudo mkswap /newswapfile
+
+# turn swap on
+sudo swapon /newswapfile
+
+# view swap info
+grep Swap /proc/meminfo

@@ -1,0 +1,1 @@
+I flashed IPMI using FreeDOS to version 3.66. The latest 3.88 version didnt work for some reason.

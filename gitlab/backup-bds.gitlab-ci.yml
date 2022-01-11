@@ -1,0 +1,18 @@
+stages:
+  - DBs
+
+backup_db:
+  stage: DBs
+  script:
+    - echo $HOST
+    - if [ -z $HOST ]; then echo "HOST is not set"; exit 1; fi
+    - TARGET=/home/sen4ik/db_backups/$HOST/$(date +%m-%d-%Y_%H-%M-%S)
+    - sudo mkdir -p $TARGET
+    - databases=`ssh sen4ik@$HOST -p$SERVER_PORT
+      "mysql --user=$DB_USER -p$DB_PASS -e 'SHOW DATABASES;'" |
+      grep -Ev "(Database|information_schema|performance_schema|phpmyadmin|mysql|sys)"`
+    - for db in $databases; do
+    -  echo $db
+    -  sudo bash -c "ssh -i /home/sen4ik/.ssh/soyoustart -C sen4ik@$HOST -p$SERVER_PORT \"/usr/bin/mysqldump --column-statistics=0 --force --opt --user=$DB_USER -p$DB_PASS --databases $db\" | gzip > $TARGET/${db}.sql.gz"
+    - done
+    - sudo chown -R sen4ik $TARGET

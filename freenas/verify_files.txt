@@ -1,0 +1,7 @@
+find . -type f -exec md5 -r {} \; > server1.lst
+find . -type f -exec md5 -r {} \; > server2.lst
+sort server1.lst > file1sorted.lst
+sort server2.lst > file2sorted.lst
+diff file1sorted.lst file2sorted.lst
+
+rsync --dry-run --recursive --delete --links --checksum --verbose --log-file=/mnt/PoolOne/DatasetOne/MyFiles/logs/rsync-$(date +%Y-%m-%d-%H-%M-%S).txt --log-file-format="%i %f %b" --copy-links --rsh "ssh -p9999" sen4ik@192.168.1.111:/mnt/Vol1/MyFiles/ /mnt/PoolOne/DatasetOne/MyFiles/ > dirdiff.txt
