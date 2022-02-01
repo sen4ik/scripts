@@ -1,0 +1,11 @@
+# https://github.com/Chia-Network/chia-blockchain/wiki/Pooling-User-Guide
+
+# you need at least 1 mojo in the wallet
+
+# self pooling
+chia plotnft create -s local
+
+# now get your pool contract address
+chia plotnft show
+
+# https://pool.garden/guides/madmax

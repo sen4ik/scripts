@@ -1,0 +1,4 @@
+cd /usr/lib/chia-blockchain/resources/app.asar.unpacked/daemon
+
+# add the following to ~/.bashrc
+export PATH="/usr/lib/chia-blockchain/resources/app.asar.unpacked/daemon:$PATH"

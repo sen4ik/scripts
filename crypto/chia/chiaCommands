@@ -1,0 +1,45 @@
+# https://dazeb.uk/how-to-set-up-your-chia-farm-for-nft-plotting/
+
+# Basic commands list
+chia init – migrates files from an old version to the latest version after an update
+chia start node – starts node only
+chia start node -r – restarts the node
+chia start farmer – starts the farmer, harvester, bode, and wallet
+chia start farmer -r – restarts everything
+chia plots check – checks plot files
+chia show -s – show status of node
+chia farm summary – Show summary of the farmer
+chia wallet show – Show wallet data
+chia keys generate – Generate keys
+chia keys add – Add keys / seed
+chia stop -d all – turn off all Chia services
+chia netspace – show the current size of the network
+chia version – shows the current chia version
+
+# Wallet commands
+chia wallet get_address – Get a receiving address
+chia wallet get_transaction – Obtain a transaction
+chia wallet get_transactions – Show all transactions
+chia wallet show – Show wallet data
+chia wallet send – send chia to another wallet
+
+# Plot commands
+chia plots add -d PATH – adds a directory as plot directory
+chia plots check – checks the existing plot files
+chia plots create – creates a new plot (see above)
+chia plots remove – removes a plot directory from the configuration
+chia plots show – shows the currently stored paths for plots
+
+# Farm commands
+chia farm challenges – displays recent challenges
+chia farm summary – displays a summary of the farmer
+
+# Key commands
+chia keys add – add a key by seed
+chia keys delete -f NUMBER – deletes the key with the fingerprint NUMBER
+chia keys delete_all – deletes all keys
+chia keys generate – generates a new key
+chia keys generate_and_print – generates a new key WITHOUT saving it
+chia keys show – shows all saved keys
+chia keys sign – signs a message with the private key
+chia keys verify – verifies a signature

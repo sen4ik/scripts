@@ -1,0 +1,20 @@
+- The staking fo Linux system need to check your staking  address, according to your plots:
+$ sit farm summary
+...
+Staking addresses:
+  sit1x6jjvepyvjv7395nmtywvx9mknshgy78dsmuu38m0e9grxr080nsltjugr (balance: 0, plots: 27)
+...
+
+- Stake your SIT to staking address:
+$ sit wallet send -t sit1x6jjvepyvjv7395nmtywvx9mknshgy78dsmuu38m0e9grxr080nsltjugr -a 1 
+
+- Wait transaction confirm then check the staking balance again:
+$ sit farm summary
+...
+Staking addresses:
+  sit1x6jjvepyvjv7395nmtywvx9mknshgy78dsmuu38m0e9grxr080nsltjugr (balance: 1, plots: 27)
+...
+
+- When you want to withdraw your SIT:
+$ sit wallet send-from -s sit1x6jjvepyvjv7395nmtywvx9mknshgy78dsmuu38m0e9grxr080nsltjugr -t $RECEIVER
+

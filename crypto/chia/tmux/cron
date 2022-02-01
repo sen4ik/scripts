@@ -1,0 +1,1 @@
+@reboot . /home/sen4ik/.profile ; sh /home/sen4ik/tmuxStart.sh &>> log

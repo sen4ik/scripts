@@ -1,0 +1,10 @@
+# crontab for the root user
+sudo crontab -e
+
+# set the following crons
+@reboot chown -R sen4ik /media/
+@reboot chown -R sen4ik /mnt/
+@reboot mount -t tmpfs -o size=110G tmpfs /mnt/ram/ && chown -R sen4ik /mnt/ram
+
+# crontab to copy plots
+*/20 * * * * date && rsync -av --exclude=*.tmp --progress --skip-compress=plot --remove-source-files /media/nvme/plot-*.plot /media/drive1 && date

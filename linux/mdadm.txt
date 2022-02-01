@@ -1,0 +1,14 @@
+# https://www.digitalocean.com/community/tutorials/how-to-create-raid-arrays-with-mdadm-on-ubuntu-18-04
+
+# I had an issue with md device not autostarting after reboot. Below is how I resolved it.
+
+# Use fdisk to kill all the partitions and create freshpartition on each disk.
+sudo fdisk /dev/sdx
+# in fdsik do the d, g, n, w
+
+# Now you might need to clear the superblocks even though this never worked for me. I just skipped this step. mdadm uses superblock to assemble the array after reboot.
+
+# When creating the raid, use the partitions instead of disks.
+sudo mdadm --create --verbose /dev/md0 --level=0 --raid-devices=6 /dev/sdf1 /dev/sdg1 /dev/sdao1 /dev/sday1 /dev/sdaz1 /dev/sdba1
+
+# That worked for me.

@@ -1,0 +1,2 @@
+#!/bin/bash
+lsblk -o NAME,SIZE,FSTYPE,UUID,MOUNTPOINT

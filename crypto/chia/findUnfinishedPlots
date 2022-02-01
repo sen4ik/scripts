@@ -1,0 +1,4 @@
+
+find /media -type f -size -99G
+
+find /media -type f -size -99G -delete
