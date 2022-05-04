@@ -1,0 +1,31 @@
+# view package info
+brew info <package>
+
+# update package repo
+brew update
+
+# list outdated pkgs, both formula and cask
+brew outdated
+
+# list formula only, the old behavior of 
+brew outdated --formula
+
+# list cask only
+brew outdated --cask
+
+# upgrade specific formula
+brew upgrade <formula>
+
+# see an installed package
+brew list <package>
+
+# view all installed packages
+brew list
+brew list --cask
+
+# remove a package
+brew uninstall <package>
+
+# remove unused dependencies
+brew autoremove
+
