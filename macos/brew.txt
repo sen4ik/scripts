@@ -29,3 +29,11 @@ brew uninstall <package>
 # remove unused dependencies
 brew autoremove
 
+# stop something from updating
+brew pin bash
+
+# allow something to update again
+brew unpin bash
+
+# remove outdated downloads, old versions, etc
+brew cleanup
