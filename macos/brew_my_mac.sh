@@ -36,4 +36,5 @@ brew install node@16 yarn nvm
 # brew install libreoffice
 # brew install ffmpeg
 
-brew install allure
+brew install allure openapi-generator
+brew install --cask appium appium-inspector
