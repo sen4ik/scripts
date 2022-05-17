@@ -1,0 +1,8 @@
+# Format USB as FAT
+# Download Windows installation ISO
+# Install wimlib
+brew install wimlib 
+# Copy all files from ISO to the USB drive, except install.wim
+# Copy the install.wim to the USB drive using wimlib
+wimlib-imagex split /Volumes/CCCOMA_X64FRE_EN-US_DV9/sources/install.wim /Volumes/UNTITLED/sources/install.swm 4000
+# In my case, i had to select UEFI: USB Drive from the boot menu to start the install
