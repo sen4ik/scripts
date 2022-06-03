@@ -15,7 +15,7 @@ brew install automake findutils coreutils autoconf
 
 brew install nano awk htop wget curl nmap tmux watch tree maven ccat bat
 
-brew install --cask grammarly google-chrome firefox vlc keepassxc tunnelblick audacity balenaetcher istat-menus vnc-viewer caffeine
+brew install --cask grammarly google-chrome firefox vlc keepassxc tunnelblick audacity balenaetcher istat-menus vnc-viewer caffeine rectangle-pro
 
 brew install --cask intellij-idea sublime-text postman dbeaver-community docker iterm2 figma
 

@@ -1,0 +1,7 @@
+
+# To mark a network interface as optional on Ubuntu server, edit the /etc/netplan/*.yaml file
+# Add optional: true to the interface
+# Apply changes
+sudo netplan generate
+sudo netplan apply
+reboot
