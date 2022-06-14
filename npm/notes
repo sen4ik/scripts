@@ -1,0 +1,6 @@
+
+npm install --global yarn
+
+npm update <pkg>
+
+npm update -g
