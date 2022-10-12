@@ -1,0 +1,14 @@
+View all Java versions installed
+/usr/libexec/java_home -V
+
+View currently used version
+/usr/libexec/java_home -v
+
+View Java 8 execs
+/usr/libexec/java_home -v 1.8
+
+Set JAVA_HOME to version 8
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+To see which version Maven uses
+mvn -version
