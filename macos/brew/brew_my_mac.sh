@@ -13,7 +13,7 @@ brew install openjdk@8
 
 brew install automake findutils coreutils autoconf
 
-brew install nano awk htop wget curl nmap tmux watch tree maven ccat bat
+brew install nano awk htop wget curl nmap tmux watch tree maven ccat bat ncdu
 
 brew install --cask grammarly google-chrome firefox vlc keepassxc tunnelblick audacity balenaetcher istat-menus vnc-viewer caffeine rectangle-pro
 
