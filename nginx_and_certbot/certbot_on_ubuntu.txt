@@ -1,0 +1,4 @@
+
+sudo apt install certbot python3-certbot-apache
+
+sudo certbot --nginx -d domain.com -d www.domain.com

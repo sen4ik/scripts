@@ -1,0 +1,7 @@
+zpool list
+
+zpool status
+
+sudo zpool scrub PoolOne
+
+
