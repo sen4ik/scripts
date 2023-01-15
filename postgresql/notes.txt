@@ -1,0 +1,4 @@
+# Expanded Auto Mode
+# If the record can fit into the width of the screen; psql uses normal formatting.
+# If the record can not fit into the width of the screen; psql uses expanded mode.
+\x auto

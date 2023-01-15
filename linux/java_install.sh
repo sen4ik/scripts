@@ -1,4 +1,7 @@
 #!/bin/bash
+sudo apt update
+# apt-cache search openjdk | grep 17
+
 sudo apt install -y default-jre
 java -version
 sudo apt install -y default-jdk

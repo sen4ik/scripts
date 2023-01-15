@@ -1,0 +1,2 @@
+# view permissions as number
+stat -f '%A %a %N' *
