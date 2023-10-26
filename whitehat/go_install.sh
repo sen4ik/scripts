@@ -2,7 +2,7 @@
 PROFILE=~/.profile
 
 # install go and add it to path
-GO_VERSION=1.13.4
+GO_VERSION=1.20.3
 GO_ARCHIVE=go$GO_VERSION.linux-amd64.tar.gz
 curl -O https://dl.google.com/go/$GO_ARCHIVE
 tar xvf $GO_ARCHIVE
