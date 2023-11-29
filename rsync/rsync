@@ -1,0 +1,3 @@
+# From server to another server
+rsync -a --ignore-existing --progress -e 'ssh -p 1234' /mnt/PoolOne/DatasetOne/MyFiles/Photos/ user@1.1.1.1:/mnt/PoolZ/DatasetZ/ZFiles/MyFilesBackup/Photos/
+
