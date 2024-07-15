@@ -1,0 +1,27 @@
+
+
+05-06	19200bps or 9600bps (Testing 19200)
+05-07	1000msec
+05-08	DISABLE
+
+08-01	PSK or OTHERS (Testing OTHERS)
+08-09	REAR
+08-10	DAKY
+08-11	50
+08-12	USB
+
+11-05	REAR [Important]
+
+16-01	50
+16-11	30
+16-14	50 or 40
+
+****
+
+
+
+
+
+07-12	RTS
+
+08-02	1500Hz

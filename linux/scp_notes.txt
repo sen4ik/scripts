@@ -5,4 +5,4 @@ scp -P 1234 username@from_host:file.txt /local/directory/
 scp -P 1234 -r files/ sen4ik@198.22.33.44:/home/sen4ik/
 
 # Since we can't ignore-existing using scp, we can use rsync
-rsync -a --ignore-existing -e 'ssh -p PORT_NUMBER' source_directory/ user@remote_host:destination_directory/
+rsync -a --progress --ignore-existing -e 'ssh -p PORT_NUMBER' source_directory/ user@remote_host:destination_directory/
